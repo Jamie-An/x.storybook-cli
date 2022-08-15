@@ -1,0 +1,30 @@
+{
+  "name": "@miabox/cli",
+  "version": "1.0.0-bate1",
+  "description": "组件库开发脚手架工具",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "dev": "npm run clean && tsc -w",
+    "prepublish": "npm run clean && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jamie-An/miabox-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jamie-An/miabox-cli/issues"
+  },
+  "homepage": "https://github.com/Jamie-An/miabox-cli#readme",
+  "bin": "bin/miabox-cli",
+  "devDependencies": {
+    "@types/node": "^18.7.3",
+    "typescript": "^4.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
