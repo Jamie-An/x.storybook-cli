@@ -19,12 +19,17 @@
     "url": "https://github.com/Jamie-An/miapub-storybook-cli/issues"
   },
   "homepage": "https://github.com/Jamie-An/miapub-storybook-cli#readme",
-  "bin": "bin/storybook-cli",
+  "bin": "bin/sb",
   "devDependencies": {
+    "@types/minimist": "^1.2.2",
     "@types/node": "^18.7.3",
     "typescript": "^4.7.4"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "minimist": "^1.2.6",
+    "chalk": "^4.1.2"
   }
 }

@@ -1,0 +1,22 @@
+{
+  // vscode默认启用了根据文件类型自动设置tabsize的选项
+  "editor.detectIndentation": false,
+  // 重新设定tabsize
+  "editor.tabSize": 2,
+  // 开始保存后自动格式化
+  "editor.formatOnSave": true,
+  // 各类文件统一使用 prettiter 格式化规则
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 显示制表符
+  "editor.renderControlCharacters": true,
+  // 显示空格
+  "editor.renderWhitespace": "all",
+  // 调整 .tsx 保存时自动格式化规则
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  // 调整 .ts 保存时自动格式化规则
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
+}
