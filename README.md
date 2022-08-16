@@ -1,3 +1,3 @@
-# miabox-cli
+# @miapub/storybook-cli
 
-组件库开发脚手架工具
+基于storybook扩展的组件库开发脚手架工具

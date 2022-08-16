@@ -1,7 +1,7 @@
 {
-  "name": "@miabox/cli",
+  "name": "@miapub/storybook-cli",
   "version": "1.0.0-bate1",
-  "description": "组件库开发脚手架工具",
+  "description": "基于storybook扩展的组件库开发脚手架工具",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rm -rf dist",
@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jamie-An/miabox-cli.git"
+    "url": "git+https://github.com/Jamie-An/miapub-storybook-cli.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jamie-An/miabox-cli/issues"
+    "url": "https://github.com/Jamie-An/miapub-storybook-cli/issues"
   },
-  "homepage": "https://github.com/Jamie-An/miabox-cli#readme",
-  "bin": "bin/miabox-cli",
+  "homepage": "https://github.com/Jamie-An/miapub-storybook-cli#readme",
+  "bin": "bin/storybook-cli",
   "devDependencies": {
     "@types/node": "^18.7.3",
     "typescript": "^4.7.4"
