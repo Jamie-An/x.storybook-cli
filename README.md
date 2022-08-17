@@ -15,4 +15,7 @@ npm i -g @miapub/storybook-cli
 
 ```shell
 sb-cli creat <项目名> <Path>
+
+# 若想初始化内容就放在当前根目录，path参数可使用 .
+sb-cli creat xx .
 ```
