@@ -1,7 +1,7 @@
 {
   "name": "@miapub/storybook-cli",
-  "version": "1.0.0-bate1",
-  "description": "基于storybook扩展的组件库开发脚手架工具",
+  "version": "1.0.0",
+  "description": "快速搭建开箱即用的storybook组件库开发环境",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rm -rf dist",
@@ -19,8 +19,13 @@
     "url": "https://github.com/Jamie-An/miapub-storybook-cli/issues"
   },
   "homepage": "https://github.com/Jamie-An/miapub-storybook-cli#readme",
-  "bin": "bin/sb",
+  "bin": {
+    "sb": "bin/sb-cli"
+  },
   "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/inquirer": "^9.0.1",
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.7.3",
     "typescript": "^4.7.4"
@@ -29,7 +34,12 @@
     "access": "public"
   },
   "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^9.4.0",
+    "download-git-repo": "^3.0.2",
+    "fs-extra": "^10.1.0",
+    "inquirer": "^8.2.4",
     "minimist": "^1.2.6",
-    "chalk": "^4.1.2"
+    "ora": "^5.4.1"
   }
 }
