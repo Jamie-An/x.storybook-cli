@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Jamie-An/miapub-storybook-cli#readme",
   "bin": {
-    "sb": "bin/sb-cli"
+    "sb-cli": "bin/sb-cli"
   },
   "devDependencies": {
     "@types/es6-promise": "^3.3.0",

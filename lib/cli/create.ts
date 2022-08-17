@@ -18,7 +18,8 @@ export default (argv: any) => {
   // 1、获取命令参数
   const projectName = argv._[1]
   const cwd = argv.cwd
-  let distPath = argv._[2]
+  const cacheArgPath = argv._[2]
+  let distPath = cacheArgPath
 
   // 若传递了目标路径 => 与当前路径进行合并
   //      否        => 取当前路径
@@ -81,8 +82,10 @@ export default (argv: any) => {
     .prompt(promptList)    // 选择类型
     .then(downLoadSync)    // 拉取模板
     .then(async () => {    // 迁移模板到指定目录
-      await fs.copy(`${cwd}/${projectName}`, distPath)
-      await fs.remove(`${cwd}/${projectName}`)
+      if (cacheArgPath) {
+        await fs.copy(`${cwd}/${projectName}`, distPath)
+        await fs.remove(`${cwd}/${projectName}`)
+      }
       spinner.succeed(`项目创建成功，可以开启组件库开发旅程拉！
 
     npm i                 // 安装所有依赖
