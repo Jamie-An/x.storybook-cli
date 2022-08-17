@@ -1,0 +1,45 @@
+{
+    "name": "@miapub/storybook-cli",
+    "version": "1.0.2",
+    "description": "快速搭建开箱即用的storybook组件库开发环境",
+    "main": "lib/index.js",
+    "scripts": {
+        "clean": "rm -rf dist",
+        "dev": "npm run clean && tsc -w",
+        "prepublish": "npm run clean && tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Jamie-An/miapub-storybook-cli.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Jamie-An/miapub-storybook-cli/issues"
+    },
+    "homepage": "https://github.com/Jamie-An/miapub-storybook-cli#readme",
+    "bin": {
+        "sb-cli": "bin/sb-cli"
+    },
+    "devDependencies": {
+        "@types/es6-promise": "^3.3.0",
+        "@types/fs-extra": "^9.0.13",
+        "@types/inquirer": "^9.0.1",
+        "@types/minimist": "^1.2.2",
+        "@types/node": "^18.7.3",
+        "typescript": "^4.7.4"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "commander": "^9.4.0",
+        "download-git-repo": "^3.0.2",
+        "fs-extra": "^10.1.0",
+        "inquirer": "^8.2.4",
+        "minimist": "^1.2.6",
+        "ora": "^5.4.1"
+    }
+}
