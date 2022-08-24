@@ -62,7 +62,7 @@ exports.default = (argv, name, distPath, option) => {
         ]);
     }))
         .catch((err) => {
-        console.log(err);
+        // console.log(err)
         spinner.fail();
         return Promise.reject(['创建项目失败，建议重新尝试！']);
     });

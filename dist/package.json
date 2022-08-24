@@ -1,6 +1,6 @@
 {
     "name": "@miapub/storybook-cli",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "快速搭建开箱即用的storybook组件库开发环境",
     "main": "lib/index.js",
     "scripts": {

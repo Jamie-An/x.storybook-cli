@@ -48,7 +48,7 @@ export default (argv: string[], name: string, distPath: string | undefined, opti
       }
       spinner.succeed(`项目创建成功，可以开启您的组件库开发之旅拉!`)
       return Promise.resolve([
-        `cd ${distPath}`,
+        `cd ${pathDir}`,
         'npm i                  安装所有依赖',
         'npm start              启动项目',
         'npm run build          打包组件库预览页',
