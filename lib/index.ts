@@ -1,33 +1,64 @@
 /**
  * 项目入口
  */
-
-import minimist from 'minimist'
-import fs from 'fs'
-import path from 'path'
-import program from 'commander'
+// import minimist from 'minimist'
+// import fs from 'fs'
+// import path from 'path'
+import pkg from '../package.json'
+import { Command } from 'commander'
+import commandNew from './new'
+import chalk from 'chalk'
 
 module.exports = (argv: []) => {
-  logo()
-  // 解析所有【指令】及【参数】
-  let curArgv = minimist(argv.slice(2));
 
-  // 取出指令
-  let commands = curArgv._
+  const program = new Command()
+  let matched = false
 
-  // 对应读取 cli 文件夹里的文件（同步）
-  let clis = fs.readdirSync(path.resolve(__dirname, './cli/')).map(c => c.replace('.js', ''))
-  // 找不到指令时默认执行 help
-  let cmd = clis.indexOf(commands[0]) !== -1 ? commands[0] : 'help'
-  let command = require('./cli/' + cmd).default
-  // 增加运行时的路径信息
-  curArgv.cwd = process.cwd()
+  program
+    .version(pkg.version)
+    .usage('<command> <arg> [options]')
 
-  command(argv)
+  program
+    .argument('name', '新创建项目的名称')
+    .argument('path', '项目的存放地址，. 表示当前文件夹下创建')
+    .argument('-l, --less', '搭配less')
+    .argument('-sa, --sass', '搭配sass')
+    .argument('-st, --stylus', '搭配stylus')
+
+  program
+    .command('new <name> [path]')
+    .description('初始化项目')
+    .option('-l, --less', '搭配less')
+    .option('-sa, --sass', '搭配sass')
+    .option('-st, --stylus', '搭配stylus')
+    .action((name, path, option) => {
+      matched = true
+      type IOption = 'less' | 'sass' | 'stylus'
+      commandNew(argv, name, path, (Object.keys(option)[0] || 'less') as IOption)
+        .then((msg: string[]) => logMessage(msg))
+        .catch((msg: []) => logMessage(msg))
+    })
+
+  // 执行指令 
+  program.parse(argv)
+
+  // TODO: 此段逻辑未执行，待补充
+  // @ts-ignore
+  if (matched !== true) {
+    logo()
+    program.help()
+  }
 }
 
+// 输出执行过程中的log
+function logMessage(messages: string[]) {
+  logo()
+  console.log(messages.map(msg => '  ' + msg).join('\n') + '\n')
+}
+
+// 字符涂鸦
 function logo() {
-  console.log(`
+  console.log(chalk.magentaBright(`
                               _                 _     
         _                    | |               | |    
     ___| |_  ___   ____ _   _| | _   ___   ___ | |  _ 
@@ -36,5 +67,6 @@ function logo() {
   (___/ \\___)___/|_|    \\__  |____/ \\___/ \\___/|_| \\_)
                        (____/                                                                  
     `)
+  )
 }
 
