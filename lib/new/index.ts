@@ -5,12 +5,12 @@
 import path from "path"
 import fs from 'fs-extra'
 import ora from 'ora'
+import download from 'download-git-repo'
 // import inquirer from 'inquirer'
 
 type IOption = 'less' | 'sass' | 'stylus'
 
 export default (argv: string[], name: string, distPath: string | undefined, option: IOption) => {
-  const download: any = require('download-git-repo')
   // 开启loading
   const spinner = ora('').start()
 

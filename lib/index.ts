@@ -1,9 +1,6 @@
 /**
  * 项目入口
  */
-// import minimist from 'minimist'
-// import fs from 'fs'
-// import path from 'path'
 import pkg from '../package.json'
 import { Command } from 'commander'
 import commandNew from './new'
@@ -16,11 +13,12 @@ module.exports = (argv: []) => {
 
   program
     .version(pkg.version)
+    .helpOption('-h, --help', '查看帮助文档')
     .usage('<command> <arg> [options]')
 
   program
-    .argument('name', '新创建项目的名称')
-    .argument('path', '项目的存放地址，. 表示当前文件夹下创建')
+    .argument('<name>', '新创建项目的名称')
+    .argument('[path]', '项目的存放地址，. 表示在当前文件夹下创建')
     .argument('-l, --less', '搭配less')
     .argument('-sa, --sass', '搭配sass')
     .argument('-st, --stylus', '搭配stylus')
@@ -39,15 +37,15 @@ module.exports = (argv: []) => {
         .catch((msg: []) => logMessage(msg))
     })
 
-  // 执行指令 
+  // 解析指令 
   program.parse(argv)
 
   // TODO: 此段逻辑未执行，待补充
   // @ts-ignore
-  if (matched !== true) {
-    logo()
-    program.help()
-  }
+  // if (matched !== true) {
+  //   logo()
+  //   program.help()
+  // }
 }
 
 // 输出执行过程中的log

@@ -18,8 +18,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const ora_1 = __importDefault(require("ora"));
+const download_git_repo_1 = __importDefault(require("download-git-repo"));
 exports.default = (argv, name, distPath, option) => {
-    const download = require('download-git-repo');
     // 开启loading
     const spinner = (0, ora_1.default)('').start();
     // 若传递了目标路径 => 与当前路径进行合并
@@ -36,7 +36,7 @@ exports.default = (argv, name, distPath, option) => {
             stylus: 'github:Jamie-An/storybook-templet'
         };
         return new Promise((resolve, reject) => {
-            download(gitHttp[option], name, (err) => {
+            (0, download_git_repo_1.default)(gitHttp[option], name, (err) => {
                 if (err) {
                     spinner.fail(`获取模板失败 T_T`);
                     reject(err);
@@ -54,7 +54,7 @@ exports.default = (argv, name, distPath, option) => {
         }
         spinner.succeed(`项目创建成功，可以开启您的组件库开发之旅拉!`);
         return Promise.resolve([
-            `cd ${distPath}`,
+            `cd ${pathDir}`,
             'npm i                  安装所有依赖',
             'npm start              启动项目',
             'npm run build          打包组件库预览页',
