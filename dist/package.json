@@ -1,6 +1,6 @@
 {
     "name": "@x./storybook-cli",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "快速搭建开箱即用的storybook组件库开发环境",
     "main": "lib/index.js",
     "scripts": {
@@ -10,15 +10,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Jamie-An/miapub-storybook-cli.git"
+        "url": "git+https://github.com/Jamie-An/x.storybook-cli.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/Jamie-An/miapub-storybook-cli/issues"
+        "url": "https://github.com/Jamie-An/x.storybook-cli/issues"
     },
-    "homepage": "https://github.com/Jamie-An/miapub-storybook-cli#readme",
+    "homepage": "https://github.com/Jamie-An/x.storybook-cli#readme",
     "bin": {
         "storybook": "bin/storybook",
         "sb": "bin/storybook"

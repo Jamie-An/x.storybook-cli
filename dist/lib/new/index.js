@@ -31,9 +31,9 @@ exports.default = (argv, name, distPath, option) => {
         spinner.text = 'loading...';
         // 更具参数匹配不同的仓库模板
         let gitHttp = {
-            less: 'github:Jamie-An/storybook-templet',
-            sass: 'github:Jamie-An/storybook-templet',
-            stylus: 'github:Jamie-An/storybook-templet'
+            less: 'github:Jamie-An/sb-temp-react-less',
+            sass: 'github:Jamie-An/sb-temp-react-less',
+            stylus: 'github:Jamie-An/sb-temp-react-less'
         };
         return new Promise((resolve, reject) => {
             (0, download_git_repo_1.default)(gitHttp[option], name, (err) => {

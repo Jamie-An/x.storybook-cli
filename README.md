@@ -26,6 +26,9 @@ npm i -g @x./storybook-cli
 ```shell
 # 在当前目录下创建（建议使用空文件夹）
 sb i
+# or
+storybook init
+
 # or 在创建至指定目录
 storybook new <项目名> <Path>
 ```
