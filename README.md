@@ -1,4 +1,4 @@
-# @miapub/storybook-cli
+# @x./storybook-cli
 
 ```shell
                               _                 _
@@ -18,14 +18,14 @@
 ## 安装
 
 ```shell
-npm i -g @miapub/storybook-cli
+npm i -g @x./storybook-cli
 ```
 
 ## 初始化项目
 
 ```shell
+# 在当前目录下创建（建议使用空文件夹）
+sb i
+# or 在创建至指定目录
 storybook new <项目名> <Path>
-
-# 若想初始化内容就放在当前根目录，path参数可使用 .
-storybook new xx .
 ```

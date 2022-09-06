@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const package_json_1 = __importDefault(require("../package.json"));
 const commander_1 = require("commander");
 const new_1 = __importDefault(require("./new"));
+const init_1 = __importDefault(require("./init"));
 const chalk_1 = __importDefault(require("chalk"));
 module.exports = (argv) => {
     const program = new commander_1.Command();
@@ -19,16 +20,32 @@ module.exports = (argv) => {
         .usage('<command> <arg> [options]');
     program
         .argument('<name>', '新创建项目的名称')
-        .argument('[path]', '项目的存放地址，. 表示在当前文件夹下创建')
-        .argument('-l, --less', '搭配less')
-        .argument('-sa, --sass', '搭配sass')
-        .argument('-st, --stylus', '搭配stylus');
+        .argument('[path]', '项目的存放目录')
+        // .argument('[-r, --react]', '搭配使用react(默认)')
+        // .argument('-v, --vue', '搭配使用vue')
+        .argument('[-l, --less]', '搭配使用less(默认)')
+        .argument('[-sa, --sass]', '搭配使用sass(待补充)');
+    // .argument('[-st, --stylus]', '搭配使用stylus')
+    program
+        .command('init')
+        .alias('i')
+        .description('在当前目录初始化项目')
+        .argument('[-l, --less]', '搭配使用less(默认)')
+        .argument('[-sa, --sass]', '搭配使用sass(待补充)')
+        // .argument('[-st, --stylus]', '搭配使用stylus')
+        .action((option = {}) => {
+        matched = true;
+        (0, init_1.default)(argv, (Object.keys(option)[0] || 'less'))
+            .then((msg) => logMessage(msg))
+            .catch((msg) => logMessage(msg));
+    });
     program
         .command('new <name> [path]')
-        .description('初始化项目')
-        .option('-l, --less', '搭配less')
-        .option('-sa, --sass', '搭配sass')
-        .option('-st, --stylus', '搭配stylus')
+        .description('在指定目录初始化项目')
+        // .argument('[-r, --react]', '搭配使用react(默认)')
+        .argument('[-l, --less]', '搭配使用less(默认)')
+        .argument('[-sa, --sass]', '搭配使用sass(待补充)')
+        // .argument('[-st, --stylus]', '搭配使用stylus')
         .action((name, path, option) => {
         matched = true;
         (0, new_1.default)(argv, name, path, (Object.keys(option)[0] || 'less'))
