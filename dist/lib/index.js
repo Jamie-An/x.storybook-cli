@@ -19,21 +19,18 @@ module.exports = (argv) => {
         .helpOption('-h, --help', '查看帮助文档')
         .usage('<command> <arg> [options]');
     program
+        .argument('-l, --less', '搭配使用less(默认)')
+        .argument('-sa, --sass', '搭配使用sass')
         .argument('<name>', '新创建项目的名称')
-        .argument('[path]', '项目的存放目录')
-        // .argument('[-r, --react]', '搭配使用react(默认)')
-        // .argument('-v, --vue', '搭配使用vue')
-        .argument('[-l, --less]', '搭配使用less(默认)')
-        .argument('[-sa, --sass]', '搭配使用sass(待补充)');
-    // .argument('[-st, --stylus]', '搭配使用stylus')
+        .argument('[path]', '项目的存放目录');
     program
         .command('init')
         .alias('i')
         .description('在当前目录初始化项目')
-        .argument('[-l, --less]', '搭配使用less(默认)')
-        .argument('[-sa, --sass]', '搭配使用sass(待补充)')
-        // .argument('[-st, --stylus]', '搭配使用stylus')
+        .option('-l, --less', '搭配使用less(默认)')
+        .option('-sa, --sass', '搭配使用sass')
         .action((option = {}) => {
+        console.log(1111, option);
         matched = true;
         (0, init_1.default)(argv, (Object.keys(option)[0] || 'less'))
             .then((msg) => logMessage(msg))
@@ -42,13 +39,9 @@ module.exports = (argv) => {
     program
         .command('new <name> [path]')
         .description('在指定目录初始化项目')
-        // .argument('[-r, --react]', '搭配使用react(默认)')
-        .argument('[-l, --less]', '搭配使用less(默认)')
-        .argument('[-sa, --sass]', '搭配使用sass(待补充)')
-        // .argument('[-st, --stylus]', '搭配使用stylus')
-        .action((name, path, option) => {
+        .action((name, path) => {
         matched = true;
-        (0, new_1.default)(argv, name, path, (Object.keys(option)[0] || 'less'))
+        (0, new_1.default)(argv, name, path)
             .then((msg) => logMessage(msg))
             .catch((msg) => logMessage(msg));
     });

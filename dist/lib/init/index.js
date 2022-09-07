@@ -27,8 +27,7 @@ exports.default = (argv, option) => {
         // 更具参数匹配不同的仓库模板
         let gitHttp = {
             less: 'github:Jamie-An/sb-temp-react-less',
-            sass: 'github:Jamie-An/sb-temp-react-less',
-            stylus: 'github:Jamie-An/sb-temp-react-less'
+            sass: 'github:Jamie-An/sb-temp-react-sass',
         };
         return new Promise((resolve, reject) => {
             (0, download_git_repo_1.default)(gitHttp[option], '_temp', (err) => {
@@ -56,7 +55,7 @@ exports.default = (argv, option) => {
     }))
         .catch((err) => {
         // console.log(err)
-        spinner.fail();
+        spinner.fail('创建失败');
         return Promise.reject(['创建项目失败，建议重新尝试！']);
     });
 };

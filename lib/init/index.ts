@@ -7,7 +7,7 @@ import fs from 'fs-extra'
 import ora from 'ora'
 import download from 'download-git-repo'
 
-type IOption = 'less' | 'sass' | 'stylus'
+type IOption = 'less' | 'sass'
 
 export default (argv: string[], option: IOption) => {
   // 开启loading
@@ -19,8 +19,7 @@ export default (argv: string[], option: IOption) => {
     // 更具参数匹配不同的仓库模板
     let gitHttp = {
       less: 'github:Jamie-An/sb-temp-react-less',
-      sass: 'github:Jamie-An/sb-temp-react-less',
-      stylus: 'github:Jamie-An/sb-temp-react-less'
+      sass: 'github:Jamie-An/sb-temp-react-sass',
     }
     return new Promise((resolve, reject) => {
       download(gitHttp[option], '_temp', (err: any) => {
@@ -49,7 +48,7 @@ export default (argv: string[], option: IOption) => {
     })
     .catch((err) => {
       // console.log(err)
-      spinner.fail()
+      spinner.fail('创建失败')
       return Promise.reject(['创建项目失败，建议重新尝试！'])
     })
 }

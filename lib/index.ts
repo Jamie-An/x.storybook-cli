@@ -7,7 +7,7 @@ import commandNew from './new'
 import commandInit from './init'
 import chalk from 'chalk'
 
-type IOption = 'less' | 'sass' | 'stylus'
+type IOption = 'less' | 'sass'
 
 module.exports = (argv: []) => {
 
@@ -20,21 +20,17 @@ module.exports = (argv: []) => {
     .usage('<command> <arg> [options]')
 
   program
+    .argument('-l, --less', '搭配使用less(默认)')
+    .argument('-sa, --sass', '搭配使用sass')
     .argument('<name>', '新创建项目的名称')
     .argument('[path]', '项目的存放目录')
-    // .argument('[-r, --react]', '搭配使用react(默认)')
-    // .argument('-v, --vue', '搭配使用vue')
-    .argument('[-l, --less]', '搭配使用less(默认)')
-    .argument('[-sa, --sass]', '搭配使用sass(待补充)')
-  // .argument('[-st, --stylus]', '搭配使用stylus')
 
   program
     .command('init')
     .alias('i')
     .description('在当前目录初始化项目')
-    .argument('[-l, --less]', '搭配使用less(默认)')
-    .argument('[-sa, --sass]', '搭配使用sass(待补充)')
-    // .argument('[-st, --stylus]', '搭配使用stylus')
+    .option('-l, --less', '搭配使用less(默认)')
+    .option('-sa, --sass', '搭配使用sass')
     .action((option = {}) => {
       matched = true
       commandInit(argv, (Object.keys(option)[0] || 'less') as IOption)
@@ -45,13 +41,9 @@ module.exports = (argv: []) => {
   program
     .command('new <name> [path]')
     .description('在指定目录初始化项目')
-    // .argument('[-r, --react]', '搭配使用react(默认)')
-    .argument('[-l, --less]', '搭配使用less(默认)')
-    .argument('[-sa, --sass]', '搭配使用sass(待补充)')
-    // .argument('[-st, --stylus]', '搭配使用stylus')
-    .action((name, path, option) => {
+    .action((name, path) => {
       matched = true
-      commandNew(argv, name, path, (Object.keys(option)[0] || 'less') as IOption)
+      commandNew(argv, name, path)
         .then((msg: string[]) => logMessage(msg))
         .catch((msg: []) => logMessage(msg))
     })

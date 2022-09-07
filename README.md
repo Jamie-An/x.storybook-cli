@@ -14,6 +14,7 @@
 
 - 初始化速度快（官方的初始化太慢了）
 - 开箱即用（已填坑版）
+- 可选 `less` 或 `sass` （默认使用 less）
 
 ## 安装
 
@@ -26,6 +27,8 @@ npm i -g @x./storybook-cli
 ```shell
 # 在当前目录下创建（建议使用空文件夹）
 sb i
+# or 搭配使用Sass（默认使用less）
+sb i -sa
 # or
 storybook init
 
