@@ -29,9 +29,9 @@ npm i -g @x./storybook-cli
 sb i
 # or 搭配使用Sass（默认使用less）
 sb i -sa
-# or
+# or 使用storybook官方初始化指令
 storybook init
 
-# or 在创建至指定目录
+# or 创建至指定目录
 storybook new <项目名> <Path>
 ```

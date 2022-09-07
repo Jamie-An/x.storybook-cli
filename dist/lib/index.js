@@ -30,7 +30,6 @@ module.exports = (argv) => {
         .option('-l, --less', '搭配使用less(默认)')
         .option('-sa, --sass', '搭配使用sass')
         .action((option = {}) => {
-        console.log(1111, option);
         matched = true;
         (0, init_1.default)(argv, (Object.keys(option)[0] || 'less'))
             .then((msg) => logMessage(msg))
